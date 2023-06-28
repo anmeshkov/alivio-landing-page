@@ -1,8 +1,7 @@
 # Alivio Landing Page
-[link](www)
+[Demo](https://anmeshkov.github.io/alivio-landing-page/)
 ___
-
-[img]
+![image](https://github.com/anmeshkov/alivio-landing-page/assets/97451331/518bb7a4-e8de-462f-b0db-def17cd6aecb)
 ___
 
 ## Общие технические требования
