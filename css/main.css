@@ -1,0 +1,685 @@
+/*!
+ * 2022 Andrew Meshkov
+ * www: https://meshkov.site
+ * mail: info@meshkov.site
+*/
+
+/* IMPORT RESET.CSS OR NORMALIZE.CSS - сбрасываем стили (нужное раскоментировать)
+---------------------------------------------------------------- */
+/* @import url("normalize.css"); */
+@import url("reset.css");
+
+
+/* IMPORT FONTS - подключаем шрифты
+---------------------------------------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap'); */
+@import url("../fonts/Lato/stylesheet.css");
+@import url("../fonts/Georgia/stylesheet.css");
+
+/* GENERAL CSS SETTINGS - основные стили
+---------------------------------------------------------------- */
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    /* or 30px */
+    color: #424242;
+}
+
+.container {
+    width: 1400px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.no-scrol {
+    overflow: hidden;
+}
+
+/* UI - стили интерфейса (a, title, button...)
+---------------------------------------------------------------- */
+
+.btn {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    background: #01996D;
+    border: 1px solid #01996D;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 50px;
+    transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    position: relative;
+    top: 1px;
+}
+
+.btn-md {
+    min-height: 65px;
+}
+
+/* STYLES - стили для сайта 
+---------------------------------------------------------------- */
+
+
+
+/* HEADER - стили для сайта 
+---------------------------------------------------------------- */
+.header {
+    padding: 15px 0;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.header__row {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    min-width: 85px;
+    min-height: 24px;
+}
+
+/* navigation */
+.header__nav {
+    margin: 0 0 0 172px;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__item:not(:last-child) {
+    margin: 0 70px 0 0;
+}
+
+.nav__link {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height */
+    color: #292929;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav__link:hover {
+    color: #01996D;
+}
+
+/* nav button */
+.mobile-nav-button {
+	/* Reset for button */
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	background: transparent;
+
+	/* Nav icon styles*/
+	position: relative;
+	z-index: 999;
+	width: 40px;
+	height: 30px;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+    display: none;
+}
+
+
+.mobile-nav-button__icon {
+	display: block;
+	position: relative;
+	width: 40px;
+	height: 5px;
+	background-color: #01996D;
+}
+
+.mobile-nav-button__icon::after,
+.mobile-nav-button__icon::before {
+	position: absolute;
+	content: '';
+	width: 40px;
+	height: 5px;
+	background-color: #01996D;
+    /* Трансформация при закрывании */
+	transition: transform 0.15s ease-in, top 0.15s ease-in 0.15s;
+}
+
+.mobile-nav-button__icon::before {
+	left: 0;
+	top: -10px;
+}
+
+.mobile-nav-button__icon::after {
+	left: 0;
+	top: 10px;
+}
+
+.mobile-nav-button__icon.active {
+	background-color: transparent;
+}
+
+.mobile-nav-button__icon.active::before {
+	transform: rotate(45deg);
+	top: 0;
+    /* Трансформация при открывании */
+	transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+}
+
+.mobile-nav-button__icon.active::after {
+	transform: rotate(-45deg);
+	top: 0;
+    /* Трансформация при открывании */
+	transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+}
+
+/* mobile nav */
+.mobile-nav {
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    position: fixed;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 70px 15px;
+    font-size: 22px;
+    display: none;
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+.mobile-nav__logo {
+}
+.mobile-nav__img {
+    min-height: 40px;
+}
+.mobile-nav__wrp {
+}
+
+.mobile-nav__item {
+    margin: 0 0 40px 0;
+}
+.mobile-nav__link {
+    font-weight: 500;
+    line-height: 24px;
+    /* identical to box height */
+    color: #292929;
+    transition: color 0.2s ease-in-out;
+}
+.mobile-nav__login {
+    display: block;
+    color: #292929;
+    transition: color 0.2s ease-in-out;
+    margin: 0 0 20px 0;
+}
+.mobile-nav__link:hover,
+.mobile-nav__login:hover {
+    color: #01996D;
+}
+
+
+/* login */
+.header__login {
+    display: flex;
+    align-items: center;
+}
+
+/* любой соседний элимент на первом уровне */
+.header__login {
+    margin: 0 0 0 auto;
+}
+
+.header__login>*+* {
+    margin: 0 0 0 30px;
+}
+
+.login {
+    color: #292929;
+    transition: color 0.2s ease;
+}
+
+.login:hover {
+    color: #01996D;
+}
+
+
+/* HOME */
+.home {
+    min-height: 895px;
+    padding: 175px 0 0 0;
+    position: relative;
+}
+
+.home__bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.home__bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home__content {
+    max-width: 440px;
+}
+
+.content__title {
+    font-family: 'Georgia';
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 74px;
+
+    color: #01996D;
+    margin: 0 0 30px 0;
+}
+
+.home__text {
+    font-weight: 400;
+    line-height: 31px;
+    margin: 0 0 53px 0;
+}
+
+.home__button {
+    display: flex;
+}
+
+/* WORKS
+---------------------------------------------------------------- */
+
+.works {
+    padding: 170px 0 50px 0;
+}
+
+.works__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 0 52px 0;
+}
+
+.works__header__column {
+    max-width: 670px;
+    align-self: center;
+}
+
+.works__header__column:not(:last-child) {
+    margin: 0 30px 30px 0;
+}
+
+.works__header__title {
+    font-family: 'Georgia';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 157%;
+    /* or 79px */
+    color: #01996D;
+}
+
+.works__header__subtitle {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 157%;
+}
+
+
+/* STEPS
+---------------------------------------------------------------- */
+
+.works__steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* column-gap: 30px; */
+    min-height: 1140px;
+}
+
+.step__item {
+    /* max-width: 390px; */
+    width: 30%;
+    padding: 135px 0 0 0;
+    align-items: center;
+}
+
+.step__item:nth-child(2) {
+    align-self: flex-end;
+}
+
+.step__item:not(:last-child) {
+    margin: 0 30px 0 0;
+}
+
+.step__title {
+    font-family: "Georgia";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+    text-align: center;
+    color: #000000;
+    margin: 0 0 55px 0;
+    position: relative;
+}
+
+.step__title::before {
+    content: attr(data-number);
+    font-weight: 400;
+    font-size: 150px;
+    color: rgba(1, 153, 109, 0.2);
+    position: absolute;
+    top: -45px;
+    left: 15px;
+}
+
+/* 
+.step__item:nth-child(1) .step__title::before {
+    content: '01';
+}
+.step__item:nth-child(2) .step__title::before {
+    content: '02';
+}
+.step__item:nth-child(3) .step__title::before {
+    content: '03';
+} */
+
+.step__text {
+    margin: 0 0 60px 0;
+}
+
+.step__img {
+    padding-bottom: 126%;
+    position: relative;
+}
+
+.step__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* STORY
+---------------------------------------------------------------- */
+.story {
+    background-color: #245852;
+    color: #FFFFFF;
+    min-height: 920px;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.story__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1530px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.story__content {
+    margin: 0 30px 50px 0;
+    max-width: 580px;
+    /* border: 1px solid #000; */
+}
+
+.story__content__title {
+    font-family: 'Georgia';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 157%;
+    margin: 0 0 30px 0;
+}
+
+.story__content__subtitle {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 157%;
+    margin: 0 0 55px 0;
+}
+
+.story__content__btn {
+    display: flex;
+}
+
+/* video */
+.story__video {
+    background: rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.story__video__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.story__video__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+	background-color: rgba(0, 0, 0, 0.2);
+	transition: opacity 0.2s ease;
+}
+
+.story__video__overlay.hidden {
+    opacity: 0;
+}
+
+.story__video__obj {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+
+
+
+/* CONTENT
+---------------------------------------------------------------- */
+.product {
+    padding: 120px 0 168px 0;
+}
+
+.product__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* flex-wrap: wrap; */
+}
+
+/* photo */
+.product__img {
+    margin: 0 85px 0 0;
+    max-width: 700px;
+    padding: 0 0 74px 60px;
+    position: relative;
+}
+
+.product__img img {
+    border-radius: 18px;
+}
+
+/* small-card */
+.product__small-card {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    text-align: center;
+    padding: 25px 55px 25px 55px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0px 3.62249px 18.1125px rgba(165, 165, 165, 0.25);
+}
+
+.small-card__title {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 157%;
+    /* or 23px */
+    color: #000000;
+    border-bottom: 1px solid #000;
+    padding: 7px;
+    margin: 0 0 13px 0;
+}
+
+.small-card__avatar {
+    margin: 0 0 11px 0;
+}
+
+.small-card__username {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 157%;
+    color: #000000;
+    margin: 0 0 20px 0;
+}
+
+.small-card__content {
+    text-align: left;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 157%;
+    /* identical to box height, or 17px */
+    color: #000000;
+}
+
+.small-card__content * {
+    margin: 0 0 16px 0;
+}
+
+.small-card__content *:last-child {
+    margin: 0;
+}
+
+.small-card__content__title {
+    font-family: 'Georgia';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 157%;
+    color: #000000;
+}
+
+.small-card__content ul li {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+
+
+/* content */
+.product__content {
+    /* border: 1px solid #000; */
+    max-width: 584px;
+}
+
+.product__content__subtitle {
+    display: block;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 157%;
+    /* or 39px */
+    color: #424242;
+    margin: 0 0 10px 0;
+}
+
+.product__content__title {
+    font-family: 'Georgia';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 157%;
+    /* or 79px */
+    color: #01996D;
+    margin: 0 0 20px 0;
+}
+
+.product__content__text {
+    margin: 0 0 40px 0;
+}
+
+.product__content__btn {
+    display: flex;
+}
+
+
+/* FOOTER
+---------------------------------------------------------------- */
+/* footer */
+.footer {
+    padding: 105px 0 145px 0;
+    background-color: #245852;
+    color: #fff;
+}
+
+.footer__logo {
+    margin: 0 0 75px 0;
+}
+
+.footer__logo__img {}
+
+.footer__nav {}
+
+.footer__nav__list {}
+
+.footer__nav__item:not(:last-child) {
+    margin: 0 0 60px 0;
+}
+
+.footer__nav__link {
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+.footer__nav__link:hover {
+    color: #fff;
+    color: #01996D;
+}
+
+
+
+/* .home,
+.works,
+.story,
+.product,
+.footer
+{
+    display: none;
+} */
